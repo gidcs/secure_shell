@@ -221,6 +221,7 @@ void func_find(string p){
     DIR *dp;
     struct dirent *dirp;
     string name;
+    vector<string> vec;
     dp = opendir(p.c_str());
     if(dp == NULL){
         print_err(errno);
@@ -233,7 +234,11 @@ void func_find(string p){
             if(name.compare(".") == 0 ||
                 name.compare("..") == 0)
                 continue;
-            func_stat(p + "/" + name, SIMPLE_STAT);
+            vec.push_back(name);
+        }
+        sort(vec.begin(), vec.end());
+        for(auto &x: vec){
+            func_stat(p + "/" + x, SIMPLE_STAT);
         }
         closedir(dp);
     }
