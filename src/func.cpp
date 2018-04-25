@@ -317,7 +317,7 @@ void func_stat(string p, int method){
             name = p.substr(found + 1);
             type = format_type(sb.st_mode & S_IFMT);
             if(type.find("device") != string::npos){
-                size = format_device(sb.st_dev);
+                size = format_device(sb.st_rdev);
             }
             else{
                 size = format_size(sb.st_size);
@@ -331,7 +331,12 @@ void func_stat(string p, int method){
             type = format_type(sb.st_mode & S_IFMT);
             size = format_size(sb.st_size);
             mode = format_mode(sb.st_mode & ~S_IFMT);
-            device = format_device(sb.st_dev);
+            if(type.find("device") != string::npos){
+                device = format_device(sb.st_rdev);
+            }
+            else{
+                device = format_device(sb.st_dev);
+            }
             cout << left << setw(25) << "File" << ": "
                  << name << endl;
             cout << setw(25) << "Type" << ": "
