@@ -10,7 +10,7 @@ vector<string> get_args(){
     string cmd_args;
     istringstream iss;
     string token;
-    
+
     getline(cin, cmd_args);
     iss.str(cmd_args);
     while(getline(iss, token, ' ')){

@@ -332,25 +332,25 @@ void func_stat(string p, int method){
             size = format_size(sb.st_size);
             mode = format_mode(sb.st_mode & ~S_IFMT);
             device = format_device(sb.st_dev);
-            cout << left << setw(25) << "File" << ": " 
+            cout << left << setw(25) << "File" << ": "
                  << name << endl;
-            cout << setw(25) << "Type" << ": " 
+            cout << setw(25) << "Type" << ": "
                  << type << endl;
-            cout << setw(25) << "Device" << ": " 
+            cout << setw(25) << "Device" << ": "
                  << device << endl;
-            cout << setw(25) << "Mode" << ": " 
+            cout << setw(25) << "Mode" << ": "
                  << mode << endl;
-            cout << setw(25) << "Ownership" << ": " 
-                 << "UID=" <<sb.st_uid << endl; 
-            cout << setw(25) << "" << "  " 
+            cout << setw(25) << "Ownership" << ": "
+                 << "UID=" <<sb.st_uid << endl;
+            cout << setw(25) << "" << "  "
                  << "GID=" << sb.st_gid << endl;
             cout << setw(25) << "Size" << ": "
                  << size << endl;
-            cout << setw(25) << "Last status change" << ": " 
+            cout << setw(25) << "Last status change" << ": "
                  << ctime(&(sb.st_ctime));
-            cout << setw(25) << "Last file access" << ": " 
+            cout << setw(25) << "Last file access" << ": "
                  << ctime(&(sb.st_atime));
-            cout << setw(25) << "Last file modification" << ": " 
+            cout << setw(25) << "Last file modification" << ": "
                  << ctime(&(sb.st_mtime));
         }
     }
