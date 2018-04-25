@@ -13,7 +13,7 @@ vector<string> get_args(){
 
     getline(cin, cmd_args);
     iss.str(cmd_args);
-    while(getline(iss, token, ' ')){
+    while(iss >> token){
         if(token.size()){
             cmd.push_back(token);
         }
