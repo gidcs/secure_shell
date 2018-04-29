@@ -145,7 +145,7 @@ void func_cat(string p){
     else{
         while(1){
             nbytes = sizeof(buf);
-            bytes_read = read(fd, buf, nbytes);
+            bytes_read = read(fd, buf, nbytes - 1);
             if(bytes_read == 0){
                 break;
             }
@@ -158,6 +158,7 @@ void func_cat(string p){
                     break;
                 }
             }
+            buf[bytes_read] = '\0';
             cout << buf;
         }
         close(fd);
